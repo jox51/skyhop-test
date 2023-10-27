@@ -4,20 +4,35 @@ import { useDropzone } from "react-dropzone"
 
 import { AiFillFileText } from "react-icons/ai"
 import { BsFileEarmarkImage } from "react-icons/bs"
+import ToggleButton from "./ToggleButton"
 
 const ImportFileComponent = () => {
+  const [file, setFile] = useState(null)
+  const [progress, setProgress] = useState(0)
+  const [fileSize, setFileSize] = useState("")
+
   const { getRootProps, getInputProps, open } = useDropzone({
     onDrop: (acceptedFiles) => {
       setFile(acceptedFiles[0])
+      setFileSize(formatBytes(acceptedFiles[0].size))
       simulateUpload(acceptedFiles[0])
     },
     noClick: true
   })
 
-  const [file, setFile] = useState(null)
-  const [progress, setProgress] = useState(0)
+  const formatBytes = (bytes, decimals = 2) => {
+    if (bytes === 0) return "0 Bytes"
 
-  const simulateUpload = (file) => {
+    const k = 1024
+    const dm = decimals < 0 ? 0 : decimals
+    const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"]
+
+    const i = Math.floor(Math.log(bytes) / Math.log(k))
+
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i]
+  }
+
+  const simulateUpload = () => {
     let progress = 0
     const interval = setInterval(() => {
       progress += 10
@@ -53,15 +68,33 @@ const ImportFileComponent = () => {
       {file && (
         <div className="mt-4">
           <div className="my-3 h-[1px] bg-gray-400"></div>
-          <div className="flex items-center mb-2">
-            <BsFileEarmarkImage className="mr-2 text-yellow-500" />
-            <span className="text-xs">{file.name}</span>
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs pl-6">{file.name}</span>
+            <span className="text-xs ">{fileSize}</span>
           </div>
-          <progress
-            value={progress}
-            max="100"
-            className="w-full h-2 bg-yellow-500"
-          ></progress>
+          <div className="flex items-center space-x-2">
+            <BsFileEarmarkImage className="text-yellow-500" />
+            <div className="flex-grow w-full h-2 bg-gray-300 rounded">
+              <div
+                className="h-2 bg-yellow-500 rounded"
+                style={{ width: `${progress}%` }}
+              ></div>
+            </div>
+          </div>
+
+          <div className="my-3 h-[1px] bg-gray-400"></div>
+
+          {/* Elapsed Data Checking */}
+          <h2 className="text-blue-900 text-sm mb-4 font-semibold">
+            Elapsed Data Checking:
+          </h2>
+          <div className="text-green-500 text-sm">No Elapsed Dates!</div>
+          <div className="my-3 h-[1px] bg-gray-400"></div>
+          {/* Toggle Window */}
+          <h2 className="text-blue-900 text-sm mb-4 font-semibold">
+            Toggle Window:
+          </h2>
+          <ToggleButton />
           <div className="my-3 h-[1px] bg-gray-400"></div>
         </div>
       )}
