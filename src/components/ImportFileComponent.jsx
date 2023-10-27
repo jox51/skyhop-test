@@ -42,13 +42,20 @@ const ImportFileComponent = () => {
     }, 500)
   }
 
+  const boxStyle = {
+    backgroundImage: `repeating-linear-gradient(-9deg, #9ca3af, #9ca3af 4px, transparent 4px, transparent 10px, #9ca3af 10px), repeating-linear-gradient(81deg, #9ca3af, #9ca3af 4px, transparent 4px, transparent 10px, #9ca3af 10px), repeating-linear-gradient(171deg, #9ca3af, #9ca3af 4px, transparent 4px, transparent 10px, #9ca3af 10px), repeating-linear-gradient(261deg, #9ca3af, #9ca3af 4px, transparent 4px, transparent 10px, #9ca3af 10px)`,
+    backgroundSize: "1px 100%, 100% 1px, 1px 100% , 100% 1px",
+    backgroundPosition: "0 0, 0 0, 100% 0, 0 100%",
+    backgroundRepeat: "no-repeat"
+  }
+
   return (
     <>
       <div className="border border-gray-400 p-4 rounded-md">
         <div
           {...getRootProps()}
-          className=" border-dotted border-2 border-gray-300   p-6 rounded-md cursor-pointer flex flex-col items-center justify-center"
-          style={{ borderStyle: "dashed" }} // Adjust the borderWidth here
+          className=" border-gray-300   p-6 rounded-md cursor-pointer flex flex-col items-center justify-center"
+          style={boxStyle} // Adjust the borderWidth here
         >
           <input {...getInputProps()} />
           <AiFillFileText size={24} className="mb-4 text-yellow-500" />
