@@ -5,7 +5,7 @@ const SelectComponent = () => {
   const [selectedValue, setSelectedValue] = useState("")
 
   return (
-    <div className="flex flex-col relative p-4 max-w-md mx-auto">
+    <div className="flex flex-col relative py-4 max-w-md mx-auto">
       <select
         id="countries"
         value={selectedValue}

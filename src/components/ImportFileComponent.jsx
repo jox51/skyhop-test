@@ -5,6 +5,7 @@ import { useDropzone } from "react-dropzone"
 import { AiFillFileText } from "react-icons/ai"
 import { BsFileEarmarkImage } from "react-icons/bs"
 import ToggleButton from "./ToggleButton"
+import ClockIcon from "./ClockIcon"
 
 const ImportFileComponent = () => {
   const [file, setFile] = useState(null)
@@ -46,7 +47,7 @@ const ImportFileComponent = () => {
       <div className="border border-gray-400 p-4 rounded-md">
         <div
           {...getRootProps()}
-          className="border-dotted border-2 border-gray-500 p-6 rounded-md cursor-pointer flex flex-col items-center justify-center"
+          className="border-dotted border-2 border-gray-300 p-6 rounded-md cursor-pointer flex flex-col items-center justify-center"
           style={{ borderStyle: "dashed" }}
         >
           <input {...getInputProps()} />
@@ -83,21 +84,27 @@ const ImportFileComponent = () => {
           </div>
 
           <div className="my-3 h-[1px] bg-gray-400"></div>
-
-          {/* Elapsed Data Checking */}
-          <h2 className="text-blue-900 text-sm mb-4 font-semibold">
-            Elapsed Data Checking:
-          </h2>
-          <div className="text-green-500 text-sm">No Elapsed Dates!</div>
-          <div className="my-3 h-[1px] bg-gray-400"></div>
-          {/* Toggle Window */}
-          <h2 className="text-blue-900 text-sm mb-4 font-semibold">
-            Toggle Window:
-          </h2>
-          <ToggleButton />
-          <div className="my-3 h-[1px] bg-gray-400"></div>
         </div>
       )}
+      {/* Elapsed Data Checking */}
+      <h2 className="text-blue-900 text-sm mb-4 font-semibold">
+        Elapsed Data Checking:
+      </h2>
+      <div className="text-green-500 text-sm">No Elapsed Dates!</div>
+      <div className="my-3 h-[1px] bg-gray-400"></div>
+      {/* Toggle Window */}
+      <h2 className="text-blue-900 text-sm mb-4 font-semibold">
+        Toggle Window:
+      </h2>
+      <div className="flex items-center">
+        {" "}
+        {/* Added flex container */}
+        <ToggleButton />
+        {/* Vertical line */}
+        <span className="border-l border-black h-4 mx-2"></span>
+        <ClockIcon />
+        <span className="pl-2 text-sm">Select Tolerance Level</span>
+      </div>
     </>
   )
 }
