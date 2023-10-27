@@ -11,14 +11,14 @@ const TestingCenter = ({ title }) => {
   const [selectedValue, setSelectedValue] = useState("")
 
   return (
-    <section className="flex items-center">
-      <h4 className="text-sm">{title}</h4>
+    <section className="flex items-center  ">
+      <h4 className="text-sm mr-8 ">{title}</h4>
       <div className="flex flex-col relative p-4 max-w-md mx-auto">
         <select
           id="testingCenter1"
           value={selectedValue}
           onChange={(e) => setSelectedValue(e.target.value)}
-          className={`appearance-none bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${
+          className={`appearance-none  bg-white border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${
             selectedValue ? "text-gray-900" : "text-blue-900 font-semibold"
           }`}
         >

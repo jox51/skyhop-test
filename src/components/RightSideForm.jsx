@@ -4,7 +4,7 @@ const RightSideForm = () => {
   return (
     <div>
       <h2 className="text-blue-900 text-sm mb-4 font-semibold">
-        Split schedule using social distancing?
+        Split chedule using social distancing?
       </h2>
 
       <div className="flex space-x-4">
@@ -23,12 +23,12 @@ const RightSideForm = () => {
           </label>
         </div>
       </div>
-      <div className="my-3 h-[1px] bg-gray-400"></div>
+      <div className="my-3 h-[1px] bg-gray-400 w-5/6 "></div>
       <h2 className="text-blue-900 text-sm mb-4 font-semibold">
         Location Checking:
       </h2>
       <div className="text-green-500 text-sm">All Available!</div>
-      <div className="my-3 h-[1px] bg-gray-400"></div>
+      <div className="my-3 h-[1px] bg-gray-400 w-5/6 "></div>
 
       {/* Client Option Components */}
       <h2 className="text-blue-900 text-sm mb-4 font-semibold">Client:</h2>
