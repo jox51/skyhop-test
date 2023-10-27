@@ -47,19 +47,19 @@ const ImportFileComponent = () => {
       <div className="border border-gray-400 p-4 rounded-md">
         <div
           {...getRootProps()}
-          className="border-dotted border-2 border-gray-300 p-6 rounded-md cursor-pointer flex flex-col items-center justify-center"
-          style={{ borderStyle: "dashed" }}
+          className=" border-dotted border-2 border-gray-300   p-6 rounded-md cursor-pointer flex flex-col items-center justify-center"
+          style={{ borderStyle: "dashed" }} // Adjust the borderWidth here
         >
           <input {...getInputProps()} />
           <AiFillFileText size={24} className="mb-4 text-yellow-500" />
-          <p className="mb-4 text-blue-900 text-xs">
+          <p className=" text-blue-900 text-xs">
             Drag & Drop Here or <span className="font-semibold">Browse</span>
           </p>
         </div>
         <div className="flex justify-center mt-4">
           <button
             onClick={open}
-            className="w-lg my-2 bg-blue-900 text-white p-2 rounded-md"
+            className=" w-[15vw] my-2 text-sm bg-blue-900 text-white p-2 rounded-md"
           >
             Upload Manifest
           </button>
@@ -87,7 +87,7 @@ const ImportFileComponent = () => {
         </div>
       )}
       {/* Elapsed Data Checking */}
-      <h2 className="text-blue-900 text-sm mb-4 font-semibold">
+      <h2 className="text-blue-900 text-sm my-4 font-semibold">
         Elapsed Data Checking:
       </h2>
       <div className="text-green-500 text-sm">No Elapsed Dates!</div>
